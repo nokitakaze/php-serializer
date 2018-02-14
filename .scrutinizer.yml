@@ -3,10 +3,11 @@ tools:
     php_pdepend: true
     php_analyzer: true
 
+# There is no need to coverage over every PHP version. There is no PHP version checks
 build:
     environment:
         php:
-            version: 5.6.0
+            version: 7.0.0
     tests:
         override:
             -

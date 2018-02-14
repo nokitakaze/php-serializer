@@ -1,6 +1,6 @@
 {
   "name": "nokitakaze/serializer",
-  "description": "Mutex implementation",
+  "description": "Safe serialization",
   "license": "Apache-2.0",
   "authors": [
     {
@@ -20,14 +20,11 @@
   "minimum-stability": "beta",
   "require": {
     "php": "^5.6 | ^7.0.9",
-    "ext-posix": "*",
-    "ext-hash": "*"
+    "ext-json": "*"
   },
   "require-dev": {
     "phpbench/phpbench": "^0.13",
-    "phpunit/phpunit": "^5.5 | ^4.6",
-    "ext-pcre": "*",
-    "ext-reflection": "*"
+    "phpunit/phpunit": "^5.5 | ^4.6"
   },
   "scripts": {
     "test-cl": [
@@ -35,6 +32,9 @@
     ],
     "tests": [
       "vendor/bin/phpunit test --coverage-clover test/clover.xml --configuration test/phpunit.xml --coverage-html test/html-report"
+    ],
+    "benchmark": [
+      "vendor/bin/phpbench run test/bench/BenchGeneral.php --report=aggregate"
     ]
   },
   "autoload": {

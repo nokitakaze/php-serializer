@@ -1,4 +1,9 @@
-# Mutex implementation
+# Safe (un-)serialization of any data
+[Remote code execution via PHP unserialize](https://www.notsosecure.com/remote-code-execution-via-php-unserialize/).
+[Official documentation](http://php.net/manual/en/function.unserialize.php) says 
+> DO NOT pass untrusted user input to unserialize() regardless of the options value of allowed_classes. Unserialization can result in code being loaded and executed due to object instantiation and autoloading, and a malicious user may be able to exploit this
+
+But JSON does not implement data as PHP does. I.e. JSON does not support `[1=>2,3=>4,"a"=>5,"and"=>"so"]`.
 
 ## Current status
 ### General
@@ -16,7 +21,6 @@ composer require nokitakaze/serializer
 And then
 ```php
 require_once 'vendor/autoload.php';
-$mutex = new FileMutex([
-    'name' => 'foobar',
-]);
+$text = NokitaKaze\Serializer\Serializer::serialize($data);
+$data = NokitaKaze\Serializer\Serializer::unserialize($text, $is_valid);
 ```

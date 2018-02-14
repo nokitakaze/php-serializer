@@ -10,8 +10,13 @@ php:
 matrix:
   allow_failures:
     - php: nightly
+    - php: hhvm-3.12
+    - php: hhvm-3.15
   include:
     - php: hhvm-3.12
+      dist: trusty
+  include:
+    - php: hhvm-3.15
       dist: trusty
   fast_finish: true
 
@@ -28,3 +33,6 @@ install: composer install --no-interaction
 
 script:
   - composer test-cl
+
+after_success:
+  - composer benchmark
