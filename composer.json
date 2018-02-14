@@ -1,0 +1,53 @@
+{
+  "name": "nokitakaze/serializer",
+  "description": "Mutex implementation",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Nikita Vetrov",
+      "email": "admin@kanaria.ru",
+      "homepage": "http://kanaria.ru/",
+      "role": "Project lead"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/nokitakaze/php-serializer"
+  },
+  "keywords": [
+    "serialization",
+    "binary serialization"
+  ],
+  "minimum-stability": "beta",
+  "require": {
+    "php": "^5.6 | ^7.0.9",
+    "ext-posix": "*",
+    "ext-hash": "*"
+  },
+  "require-dev": {
+    "phpbench/phpbench": "^0.13",
+    "phpunit/phpunit": "^5.5 | ^4.6",
+    "ext-pcre": "*",
+    "ext-reflection": "*"
+  },
+  "scripts": {
+    "test-cl": [
+      "vendor/bin/phpunit test --coverage-clover test/clover.xml --configuration test/phpunit.xml"
+    ],
+    "tests": [
+      "vendor/bin/phpunit test --coverage-clover test/clover.xml --configuration test/phpunit.xml --coverage-html test/html-report"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "NokitaKaze\\Serializer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "NokitaKaze\\Serializer\\Test\\": "test/"
+    }
+  },
+  "config": {
+    "process-timeout": 900
+  }
+}
